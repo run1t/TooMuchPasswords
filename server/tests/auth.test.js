@@ -1,13 +1,19 @@
-import request from 'supertest-as-promised';
 import httpStatus from 'http-status';
 import jwt from 'jsonwebtoken';
 import chai, { expect } from 'chai';
 import app from '../../index';
 import config from '../../config/config';
+import AuthCtrl from '../controllers/auth.controller';
 
 chai.config.includeStack = true;
 
-describe('## Auth APIs', () => {
+describe('## Auth Controller', () => {
+  let authCtrl = null;
+
+  beforeEach(() => {
+    authCtrl = new AuthCtrl(null);
+  });
+
   const validUserCredentials = {
     username: 'react',
     password: 'express'
@@ -18,19 +24,31 @@ describe('## Auth APIs', () => {
     password: 'IDontKnow'
   };
 
-  let jwtToken;
+  describe('# ', () => {
+    /**
+     * Should return an object of type
+     * {
+     *  'error' : 'Message d'erreur',
+     *  'status' : 403
+     * }
+     */
+    it('It should return an Authentication Error', () => {
+      const request = {
+        params: () => 'test'
+      };
 
-  describe('# POST /api/auth/login', () => {
-    it('should return Authentication error', (done) => {
-      request(app)
-        .post('/api/auth/login')
-        .send(invalidUserCredentials)
-        .expect(httpStatus.UNAUTHORIZED)
-        .then((res) => {
-          expect(res.body.message).to.equal('Authentication error');
-          done();
-        })
-        .catch(done);
+      const response = {
+        json: (data) => {
+          expect(data).to.have.property('error');
+          expect(data).to.have.property('status');
+        }
+      };
+
+      authCtrl.authenticationService = {
+        getToken: () => null
+      };
+
+      authCtrl.token(request, response);
     });
 
     it('should get valid JWT token', (done) => {
