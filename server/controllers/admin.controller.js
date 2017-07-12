@@ -11,10 +11,6 @@ class Administrateur {
     this.passwordService = passwordService;
   }
 
-  index(request, response) {
-    
-  }
-
   add(request, response) {
     
   }
@@ -28,8 +24,7 @@ class Administrateur {
   }
   
   patchProfil(request, response) {
-    
-  }
 
+  }
 }
 export default Administrateur;

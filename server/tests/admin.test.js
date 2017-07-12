@@ -48,7 +48,6 @@ describe('## Admin Controller', () => {
         }]
       }
     };
-
       const response = {
         json: (data) => {
           expect(data).to.have.property('passwordList');
