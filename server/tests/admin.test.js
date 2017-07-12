@@ -16,7 +16,7 @@ describe('## Admin Controller', () => {
 
   const validUserCredentials = {
     username: 'react',
-    password: 'express'
+    password: 'express' 
   };
 
   const invalidUserCredentials = {
@@ -28,20 +28,30 @@ describe('## Admin Controller', () => {
     /**
      * Should return an object of type
      * {
-     *  'error' : 'Message d'erreur',
-     *  'status' : 403
+     *  'passwordList' : 'Message d'erreur'
      * }
      */
-    it('It should return an Administrateur Error', () => {
+    it('It should return an Administrator Error', () => {
       const request = {
-        params: () => 'test','mypwd'
-      };
+        params: () => { 
+          passwordList : [{
+           id: 'blabla',
+           login: 'string',
+           password: 'string',
+           url: 'string'
+         },
+         {
+          id: 'blabla',
+          login: 'string',
+          password: 'string',
+          url: 'string'
+        }]
+      }
+    };
 
       const response = {
         json: (data) => {
-          expect(data).to.have.property('error');
-          expect(data).to.have.property('status');
-          expect(data).to.have.property('password');
+          expect(data).to.have.property('passwordList');
         }
       };
 

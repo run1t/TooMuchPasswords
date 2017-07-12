@@ -14,12 +14,12 @@ class Authentication {
     return undefined;
   }
 
-  token(request, response) {
-    const token = this.authenticationService.getToken(request.params('auth'));
-    if (!token) {
-      return response.json({ error: 'test', status: 'zefa' });
-    }
-    return response.json({ token });
+  setToken(request, response) {
+    
+  }
+
+  getToken(request, response) {
+
   }
 
 }

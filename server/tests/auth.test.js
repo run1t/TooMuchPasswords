@@ -34,7 +34,7 @@ describe('## Auth Controller', () => {
      */
     it('It should return an Authentication Error', () => {
       const request = {
-        params: () => 'test'
+        params: () => 'token'
       };
 
       const response = {

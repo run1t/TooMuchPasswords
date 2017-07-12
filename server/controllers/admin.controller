@@ -6,21 +6,29 @@ import config from '../../config/config';
 
 class Administrateur {
 
-  constructor(adminisrateurService, passwordService) {
-    this.adminisrateurService = adminisrateurService;
+  constructor(adminisratorService, passwordService) {
+    this.adminisratorService = adminisratorService;
     this.passwordService = passwordService;
   }
 
   index(request, response) {
-    return undefined;
+    
   }
 
-  token(request, response) {
-    const token = this.adminisrateurService.getToken(request.params('admin')), this.passwordService.getToken(request.params('amin'));
-    if (!token) {
-      return response.json({ error: 'test', status: 'zefa' });
-    }
-    return response.json({ token });
+  add(request, response) {
+    
+  }
+
+  profil(request, response) {
+    
+  }
+
+  delete(request, response) {
+    
+  }
+  
+  patchProfil(request, response) {
+    
   }
 
 }
