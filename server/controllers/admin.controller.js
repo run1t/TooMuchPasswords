@@ -16,7 +16,7 @@ class Administrateur {
   }
 
   token(request, response) {
-    const token = this.adminisrateurService.getToken(request.params('admin')), this.passwordService.getToken(request.params('amin'));
+    const token = this.adminisrateurService.getToken(request.params('admin'));
     if (!token) {
       return response.json({ error: 'test', status: 'zefa' });
     }

@@ -34,7 +34,7 @@ describe('## Admin Controller', () => {
      */
     it('It should return an Administrateur Error', () => {
       const request = {
-        params: () => 'test','mypwd'
+        params: () => 'test'
       };
 
       const response = {

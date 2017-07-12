@@ -1,4 +1,4 @@
-export default class AuthenticationService {
+export default class PasswordService {
 
   constructor(user, passwordModel) {
     this._user = user;
